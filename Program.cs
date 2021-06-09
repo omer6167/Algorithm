@@ -1083,32 +1083,32 @@ namespace Algorithm
         public static string ExamResult(int midterm, int finalExam)
         {
             string successDegree;
-            int sonuc = midterm * 4 / 10 + finalExam * 6 / 10;
+            int result = midterm * 4 / 10 + finalExam * 6 / 10;
 
             if (0 > midterm || midterm > 100 || 0 > finalExam || finalExam > 100)
             {
                 throw new FormatException("exam scores must be between 0 and 100");
             }
 
-            if (90 <= sonuc && sonuc <= 100)
+            if (90 <= result && result <= 100)
             {
-                successDegree = $"C:Highly Success:{sonuc}";
+                successDegree = $"C:Highly Success:{result}";
             }
-            else if (80 <= sonuc && sonuc < 90)
+            else if (80 <= result && result < 90)
             {
-                successDegree = $"B: Succesfull:{sonuc}";
+                successDegree = $"B: Succesfull:{result}";
             }
-            else if (70 <= sonuc && sonuc < 80)
+            else if (70 <= result && result < 80)
             {
-                successDegree = $"C:Pass the Lesson:{sonuc}";
+                successDegree = $"C:Pass the Lesson:{result}";
             }
-            else if (60 <= sonuc && sonuc < 70)
+            else if (60 <= result && result < 70)
             {
-                successDegree = $"D:Conditional Pass:{sonuc}";
+                successDegree = $"D:Conditional Pass:{result}";
             }
             else
             {
-                successDegree = $"F:Failed:{sonuc}";
+                successDegree = $"F:Failed:{result}";
             }
             return successDegree;
         }
@@ -1277,7 +1277,7 @@ namespace Algorithm
 
                 }
                 longestWordNew =
-                    $"Word:{longestWord} UzunluLength: {longestWord.Length} İndexNumber:{i}";
+                    $"Word:{longestWord} Length: {longestWord.Length} İndexNumber:{i}";
             }
             // int sayac = uzunKelime.Count(t => t == ' '); //ıt can be this way
             for (int i = 0; i < longestWord.Length; i++)
@@ -1577,7 +1577,7 @@ namespace Algorithm
         /// </summary>
         /// <param name="matrix"></param>
         /// <returns></returns>
-        public static int[,] TransPoz(int[,] matrix)
+        public static int[,] Transpoz(int[,] matrix)
         {
             int a = matrix.GetUpperBound(0) + 1;
             int b = matrix.GetUpperBound(1) + 1;
