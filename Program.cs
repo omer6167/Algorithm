@@ -14,9 +14,7 @@ namespace Algorithm
     {
         private static void Main(string[] args)
         {
-
-            Console.WriteLine(MinimumSwaps(1,3,5,2,4,6,7));
-
+            
 
             Console.ReadLine();
         }
@@ -71,11 +69,7 @@ namespace Algorithm
             }
         }
 
-        /// <summary>
-        /// Problem Day-14 From HackerRank
-        /// </summary>
-
-
+       
         /// <summary>
         /// Problem Day-11 Arrays2Dim From Hackerrank
         /// </summary>
