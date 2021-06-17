@@ -14,14 +14,12 @@ namespace Algorithm
     {
         private static void Main(string[] args)
         {
-            
+           
 
             Console.ReadLine();
         }
 
-
-
-
+        
 
         #region DayChallenges
 
@@ -302,6 +300,78 @@ namespace Algorithm
 
 
         #endregion
+
+
+        /// <summary>
+        /// Given two strings, if they share a common substring return "YES", else "NO"
+        /// </summary>
+        /// <param name="s1"></param>
+        /// <param name="s2"></param>
+        /// <returns></returns>
+        public static string TwoStrings(string s1, string s2)
+        {
+            // Easiest way
+            //return s1.Distinct().Intersect(s2.Distinct()).Any() ? "YES" : "NO"; 
+
+            var isS1Dist = false;
+            var isS2Dist = false;
+
+            var s1Dist = string.Empty;
+            var s2Dist = string.Empty;
+
+            for (int i = 0; i < s1.Length; i++)
+            {
+                for (int j = 0; j < s1Dist.Length; j++)
+                {
+                     
+                    if (s1[i] == s1[j])
+                    {
+                        isS1Dist = true;
+                        break;
+                    }
+                }
+                if (isS1Dist == false)
+                {
+                    s1Dist += s1[i];
+                }
+
+                isS1Dist = false;
+            }
+
+
+            for (int i = 0; i < s2.Length; i++)
+            {
+                for (int j = 0; j < s2Dist.Length; j++)
+                {
+
+                    if (s2[i] == s2[j])
+                    {
+                        isS2Dist = true;
+                        break;
+                    }
+                }
+                if (isS2Dist == false)
+                {
+                    s2Dist += s2[i];
+                }
+
+                isS2Dist = false;
+            }
+
+            for (int i = 0; i < s1Dist.Length; i++)
+            {
+                for (int j = 0; j < s2Dist.Length; j++)
+                {
+                    if (s1Dist[i]== s2Dist[j])
+                    {
+                        return "YES";
+                    }
+                }
+            }
+
+            return "NO";
+
+        }
 
         /// <summary>
         /// Given a list of toy prices and an amount to spend, determine the maximum number of gifts he can buy.
