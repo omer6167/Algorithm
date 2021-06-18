@@ -14,12 +14,17 @@ namespace Algorithm
     {
         private static void Main(string[] args)
         {
-           
+            List<int> q = new List<int>()
+            {
+              2,5,1,3,4
+            };
+
+            MinimumBribes(q);
 
             Console.ReadLine();
         }
 
-    
+      
 
 
         #region DayChallenges
@@ -68,7 +73,7 @@ namespace Algorithm
             }
         }
 
-       
+
         /// <summary>
         /// Problem Day-11 Arrays2Dim From Hackerrank
         /// </summary>
@@ -262,19 +267,16 @@ namespace Algorithm
         /// <summary>
         /// Problem Day-ConditionalStatements From Hackerrank
         /// </summary>
-        /// <param name="N"></param>
+        /// <param name="n"></param>
         /// <returns></returns>
-        public string ConditionalStatements(int N)
+        public string ConditionalStatements(int n)
         {
-            if (N % 2 != 0 || 6 <= N && N <= 20)
+            if (n % 2 != 0 || 6 <= n && n <= 20)
             {
                 return $"Weird";
             }
-            else
-            {
 
-                return $"Not Weird";
-            }
+            return $"Not Weird";
         }
 
 
@@ -302,6 +304,92 @@ namespace Algorithm
 
         #endregion
 
+        /// <summary>
+        /// Print the minimum number of bribes necessary or Too chaotic if someone has bribed more than  people.
+        /// </summary>
+        /// <param name="q">the positions of the people after all bribes</param>
+        public static void MinimumBribes(List<int> q)
+        {
+            int numbOfBribes = 0;
+
+
+
+            for (int i = 0; i < q.Count - 1; i++)
+            {
+
+                if (q[i] > i + 3)
+                {
+                    Console.WriteLine("Too chaotic");
+                    return;
+                }
+
+                for (int j = i; j < q.Count; j++)
+                {
+                    if (q[i] > q[j])
+                        numbOfBribes++;
+                }
+
+            }
+
+
+            Console.WriteLine(numbOfBribes);
+
+            /* Time limit Exeeded */
+            //for (int i = 0; i < q.Count - 1; i++)
+            //{
+            //    if (q[i] > i + 3)
+            //    {
+            //        isChaotic = true;
+            //        break;
+            //    }
+            //    for (int j = i; j < q.Count; j++)
+            //    {
+            //        if (q[i] > q[j])
+            //        {
+            //            numbOfBribes++;
+            //        }
+            //    }
+            //}
+            //if (isChaotic)
+            //{
+            //    Console.WriteLine("Too chaotic");
+            //}
+
+            //else
+            //{
+            //    Console.WriteLine(numbOfBribes);
+            //}
+
+        }
+
+        /// <summary>
+        /// Find the maximum hourglass sum
+        /// </summary>
+        /// <param name="arr">an array of integers</param>
+        /// <returns>the maximum hourglass sum</returns>
+        public static int HourglassSum(List<List<int>> arr)
+        {
+            int max = int.MinValue; // Values can be negatif
+
+            for (int i = 0; i < 4; i++)
+            {
+                for (int j = 0; j < 4; j++)
+                {
+                    var sum = arr[i][j] + arr[i][j + 1] + arr[i][j + 2]
+                                + arr[i + 1][j + 1]
+                                + arr[i + 2][j] + arr[i + 2][j + 1] + arr[i + 2][j + 2];
+
+                    if (sum > max)
+                    {
+                        max = sum;
+                    }
+                }
+            }
+
+            return max;
+        }
+
+
 
         /// <summary>
         /// Given two strings, if they share a common substring return "YES", else "NO"
@@ -324,7 +412,7 @@ namespace Algorithm
             {
                 for (int j = 0; j < s1Dist.Length; j++)
                 {
-                     
+
                     if (s1[i] == s1[j])
                     {
                         isS1Dist = true;
@@ -363,7 +451,7 @@ namespace Algorithm
             {
                 for (int j = 0; j < s2Dist.Length; j++)
                 {
-                    if (s1Dist[i]== s2Dist[j])
+                    if (s1Dist[i] == s2Dist[j])
                     {
                         return "YES";
                     }
@@ -1696,7 +1784,10 @@ namespace Algorithm
             //Console.WriteLine(list.Count);
         }
 
-        /***************************************************/
+
+
+
+        #region For Console
 
         /// <summary>
         /// For Console
@@ -1934,6 +2025,10 @@ namespace Algorithm
                 }
             }
         }
+
+
+        #endregion
+
 
     }
 }
