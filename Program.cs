@@ -19,7 +19,8 @@ namespace Algorithm
             Console.ReadLine();
         }
 
-        
+    
+
 
         #region DayChallenges
 
@@ -32,7 +33,7 @@ namespace Algorithm
         /// <param name="str"></param>
         public static string StringToInteger(string str)
         {
-            return int.TryParse(str, out int numb) ? $"{numb}" : $"Bad String";
+            return int.TryParse(str, out int num) ? $"{num}" : $"Bad String";
         }
 
         /// <summary>
@@ -382,7 +383,7 @@ namespace Algorithm
         /// <returns></returns>
         public static int MaximumToys(List<int> prices, int k)
         {
-            int maxNumb = 0;
+            int maxNum = 0;
             int sum = 0;
             prices.Sort();
 
@@ -390,18 +391,18 @@ namespace Algorithm
             {
 
                 sum += prices[i];
-                maxNumb++;
+                maxNum++;
 
                 if (sum == k)
                     break;
 
                 if (sum > k)
                 {
-                    maxNumb--;
+                    maxNum--;
                     break;
                 }
             }
-            return maxNumb;
+            return maxNum;
         }
 
         /// <summary>
@@ -581,7 +582,7 @@ namespace Algorithm
             string isValid = "NO";
             string deleted = string.Empty;
 
-            int numbInt = 0;
+            int numInt = 0;
 
             int small;
             int big;
@@ -593,7 +594,7 @@ namespace Algorithm
                     deleted += s[i];
                 }
             }
-            int[] numb = new int[deleted.Length];
+            int[] nums = new int[deleted.Length];
 
             for (int i = 0; i < deleted.Length; i++)
             {
@@ -601,38 +602,38 @@ namespace Algorithm
                 {
                     if (deleted[i] == s[j])
                     {
-                        numbInt++;
+                        numInt++;
                     }
 
                 }
-                numb[i] = numbInt;
+                nums[i] = numInt;
 
-                numbInt = 0;
+                numInt = 0;
             }
 
-            small = numb[0];
-            for (int i = 0; i < numb.Length; i++)
+            small = nums[0];
+            for (int i = 0; i < nums.Length; i++)
             {
-                if (small > numb[i])
+                if (small > nums[i])
                 {
-                    small = numb[i];
+                    small = nums[i];
                 }
             }
-            big = numb[0];
-            for (int i = 0; i < numb.Length; i++)
+            big = nums[0];
+            for (int i = 0; i < nums.Length; i++)
             {
-                if (big < numb[i])
+                if (big < nums[i])
                 {
-                    big = numb[i];
+                    big = nums[i];
                 }
             }
 
             int smalltoplam = 0;
             int bigToplam = 0;
-            for (int i = 0; i < numb.Length; i++)
+            for (int i = 0; i < nums.Length; i++)
             {
-                smalltoplam += small - numb[i];
-                bigToplam += big - numb[i];
+                smalltoplam += small - nums[i];
+                bigToplam += big - nums[i];
             }
 
 
@@ -644,11 +645,11 @@ namespace Algorithm
             if (small == 1)
             {
                 int count = 0;
-                int isEqual = numb[0];
-                for (int i = 0; i < numb.Length; i++)
+                int isEqual = nums[0];
+                for (int i = 0; i < nums.Length; i++)
                 {
 
-                    if (isEqual == numb[i])
+                    if (isEqual == nums[i])
                     {
 
                     }
@@ -813,16 +814,16 @@ namespace Algorithm
         /// <returns></returns>
         public static string AngryProfessor(int k, int[] a) // 
         {
-            int earlyNumb = 0;
+            int earlyNum = 0;
             for (int i = 0; i < a.Length; i++)
             {
                 if (a[i] <= 0)
                 {
-                    earlyNumb += 1;
+                    earlyNum += 1;
                 }
             }
-            //int earlyNumb = a.Count(t => t <= 0);     //it can be that way
-            return earlyNumb >= k ? "NO" : "YES";
+            //int earlyNum = a.Count(t => t <= 0);     //it can be that way
+            return earlyNum >= k ? "NO" : "YES";
         }
 
         /// <summary>
@@ -976,7 +977,7 @@ namespace Algorithm
         {
             int sumDigit = 0;
             int numOfDigit = 0;
-            int copyNumb = number;
+            int copyNum = number;
             do
             {
                 var digit = number % 10;
@@ -986,7 +987,7 @@ namespace Algorithm
 
             } while (number != 0);
 
-            return $"Number={copyNumb} Number of Digit:{numOfDigit} Sum of Digit: {sumDigit}";
+            return $"Number={copyNum} Number of Digit:{numOfDigit} Sum of Digit: {sumDigit}";
         }
 
         /// <summary>
@@ -1365,13 +1366,13 @@ namespace Algorithm
         /// <summary>
         /// Calculate factorial of the parameter number
         /// </summary>
-        /// <param name="numb"></param>
+        /// <param name="num"></param>
         /// <returns></returns>
-        public static long Factorial(int numb)
+        public static long Factorial(int num)
         {
             long fac = 1;
 
-            for (int i = 1; i <= numb; i++) fac *= i;
+            for (int i = 1; i <= num; i++) fac *= i;
 
             return fac;
         }
@@ -1476,16 +1477,16 @@ namespace Algorithm
         /// <returns></returns>
         public static int HowMany(string str, char c)
         {
-            int numb = 0;
+            int num = 0;
 
             for (int i = 0; i < str.Length; i++)
             {
                 if (c == str[i])
                 {
-                    numb++;
+                    num++;
                 }
             }
-            return numb;
+            return num;
         }
 
         /// <summary>
@@ -1549,13 +1550,13 @@ namespace Algorithm
         public static float AvgArray(int start, int end)
         {
             float sum = 0;
-            float numbsOfArray = 0;
+            float numsOfArray = 0;
             for (int i = start; i <= end; i++)
             {
                 sum += i;
-                numbsOfArray++;
+                numsOfArray++;
             }
-            return sum / numbsOfArray;
+            return sum / numsOfArray;
         }
 
         /// <summary>
@@ -1606,13 +1607,13 @@ namespace Algorithm
         /// <summary>
         /// Numbers that are divisible by 4 and 5
         /// </summary>
-        /// <param name="numbs"></param>
+        /// <param name="nums"></param>
         /// <returns></returns>
-        public static ArrayList DivisibleNumbs(params int[] numbs)
+        public static ArrayList DivisibleNums(params int[] nums)
         {
             ArrayList divisible = new ArrayList();
 
-            for (var i = 0; i < numbs.Length; i++)
+            for (var i = 0; i < nums.Length; i++)
             {
                 if (i % 4 == 0 && i % 5 == 0)
                 {
@@ -1626,15 +1627,15 @@ namespace Algorithm
         /// How many numbers smaller than parameter number in params numbers
         /// </summary>
         /// <param name="num"></param>
-        /// <param name="numbs"></param>
+        /// <param name="nums"></param>
         /// <returns></returns>
-        public static int SmallNumbCount(int num, params int[] numbs)
+        public static int SmallNumCount(int num, params int[] nums)
         {
-            //return numbs.Count(t => numb < t); //it can be this way
+            //return nums.Count(t => num < t); //it can be this way
             int sayac = 0;
-            for (int i = 0; i < numbs.Length; i++)
+            for (int i = 0; i < nums.Length; i++)
             {
-                if (num < numbs[i])
+                if (num < nums[i])
                 {
                     sayac++;
                 }
