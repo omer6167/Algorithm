@@ -14,17 +14,11 @@ namespace Algorithm
     {
         private static void Main(string[] args)
         {
-            List<int> q = new List<int>()
-            {
-              2,5,1,3,4
-            };
-
-            MinimumBribes(q);
+           
 
             Console.ReadLine();
         }
 
-      
 
 
         #region DayChallenges
@@ -310,11 +304,10 @@ namespace Algorithm
         /// <param name="q">the positions of the people after all bribes</param>
         public static void MinimumBribes(List<int> q)
         {
-            int numbOfBribes = 0;
+            int bribe = 0;
+            int len = q.Count - 1;
 
-
-
-            for (int i = 0; i < q.Count - 1; i++)
+            for (int i = 0; i < len; i++)
             {
 
                 if (q[i] > i + 3)
@@ -323,43 +316,35 @@ namespace Algorithm
                     return;
                 }
 
-                for (int j = i; j < q.Count; j++)
+                for (int j = i+1; j < q.Count; j++)
                 {
-                    if (q[i] > q[j])
-                        numbOfBribes++;
+                    if (q[j]<q[i])
+                        bribe++;
                 }
-
             }
 
 
-            Console.WriteLine(numbOfBribes);
+            Console.WriteLine(bribe);
+            
 
             /* Time limit Exeeded */
-            //for (int i = 0; i < q.Count - 1; i++)
+            
+            //int numbOfBribes = 0;
+            //int len = q.Count - 1;
+            //for (int i = 0; i < len; i++)
             //{
             //    if (q[i] > i + 3)
             //    {
-            //        isChaotic = true;
-            //        break;
+            //        Console.WriteLine("Too chaotic");
+            //        return;
             //    }
-            //    for (int j = i; j < q.Count; j++)
+            //    for (int j = i + 1; j < q.Count; j++)
             //    {
-            //        if (q[i] > q[j])
-            //        {
+            //        if (q[j] < q[i])
             //            numbOfBribes++;
-            //        }
             //    }
             //}
-            //if (isChaotic)
-            //{
-            //    Console.WriteLine("Too chaotic");
-            //}
-
-            //else
-            //{
-            //    Console.WriteLine(numbOfBribes);
-            //}
-
+            //Console.WriteLine(numbOfBribes);
         }
 
         /// <summary>
@@ -521,7 +506,7 @@ namespace Algorithm
         /// </summary>
         /// <param name="a"></param>
         /// <param name="b"></param>
-        static void Swap(ref int a, ref int b)
+        public static void Swap(ref int a, ref int b)
         {
             int temp = b;
             b = a;
