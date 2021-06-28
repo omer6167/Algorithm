@@ -13,11 +13,14 @@ namespace Algorithm
     {
         private static void Main(string[] args)
         {
-           
+
 
             Console.ReadLine();
         }
 
+
+
+       
 
 
         #region DayChallenges
@@ -315,19 +318,19 @@ namespace Algorithm
                     return;
                 }
 
-                for (int j = i+1; j < q.Count; j++)
+                for (int j = i + 1; j < q.Count; j++)
                 {
-                    if (q[j]<q[i])
+                    if (q[j] < q[i])
                         bribe++;
                 }
             }
 
 
             Console.WriteLine(bribe);
-            
+
 
             /* Time limit Exeeded */
-            
+
             //int numbOfBribes = 0;
             //int len = q.Count - 1;
             //for (int i = 0; i < len; i++)
@@ -594,7 +597,7 @@ namespace Algorithm
         }
 
         /// <summary>
-        /// How many numbers can be generated with input numbers
+        /// Exam : How many numbers can be generated with input numbers
         /// </summary>
         /// <param name="numbers"></param>
         /// <returns></returns>
@@ -610,6 +613,7 @@ namespace Algorithm
                 for (; i <= max;)
                 {
                     multiplication *= i;
+
                     i++;
                 }
                 j++;
@@ -619,10 +623,10 @@ namespace Algorithm
             result += max;
 
             return result;
-        } //exam
+        } 
 
         /// <summary>
-        /// Sorting algorithm for small to big
+        /// Exam : Sorting algorithm for small to big
         /// </summary>
         /// <param name="array"></param>
         /// <returns></returns>
@@ -641,7 +645,7 @@ namespace Algorithm
                 }
             }
             return array;
-        } //exam
+        } 
 
         /// <summary>
         /// Input string will be valid if all characters of the string appear the same number of times
