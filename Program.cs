@@ -1,11 +1,11 @@
-﻿using System;
+﻿using Microsoft.Extensions.Primitives;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Numerics;
 using System.Text.RegularExpressions;
-using Microsoft.Extensions.Primitives;
 
 namespace Algorithm
 {
@@ -13,14 +13,14 @@ namespace Algorithm
     {
         private static void Main(string[] args)
         {
-
+            
 
             Console.ReadLine();
         }
 
 
 
-       
+
 
 
         #region DayChallenges
@@ -299,6 +299,74 @@ namespace Algorithm
 
 
         #endregion
+
+
+        public static void GuessTheNumber()
+        {
+
+            Console.WriteLine("Welcome To the Guess the number game;");
+            Console.WriteLine("Choose the number for range between 0 and your choice");
+            
+            int lastNumb = Convert.ToInt32(Console.ReadLine());
+            int theNumber = new Random().Next(1, lastNumb);
+
+            Console.WriteLine($"I'm thinking of a number between 0 and {lastNumb}");
+            Console.WriteLine("Enter your guess, or -1 to give up");
+
+            int guessCount = 0;
+            bool keepGoing = true;
+
+            do
+            {
+                Console.WriteLine("What's your guess?");
+                
+                string entered = Console.ReadLine();
+                bool isNumber = int.TryParse(entered, out int guessNum);
+
+                if (!isNumber)
+                {
+                    Console.WriteLine("Hımm, That doesn't look like a number. Try again");
+                    
+                }
+                else
+                {
+                    if (guessNum == -1)
+                    {
+                        Console.WriteLine($"Oh well, I was thinking of the {theNumber} ");
+                        keepGoing = false;
+                    }
+
+                    else if (0 < guessNum && guessNum < lastNumb)
+                    {
+                        guessCount += 1;
+
+                        if (guessNum == theNumber)
+                        {
+                            Console.WriteLine($"Congratulations,You got in {guessCount} guesses");
+
+                            keepGoing = false;
+                        }
+
+                        else
+                        {
+                            Console.WriteLine("Nope, {0} than that", guessNum < theNumber ? "higher" : "lower");
+                        }
+                    }
+
+                    else
+                    {
+                        Console.WriteLine($"Your entered number must be between 0 and {lastNumb}");
+
+                    }
+                }
+
+
+            } while (keepGoing);
+
+            Console.WriteLine("Thank you for play the game");
+
+        }
+
 
         /// <summary>
         /// Print the minimum number of bribes necessary or Too chaotic if someone has bribed more than  people.
@@ -623,7 +691,7 @@ namespace Algorithm
             result += max;
 
             return result;
-        } 
+        }
 
         /// <summary>
         /// Exam : Sorting algorithm for small to big
@@ -645,7 +713,7 @@ namespace Algorithm
                 }
             }
             return array;
-        } 
+        }
 
         /// <summary>
         /// Input string will be valid if all characters of the string appear the same number of times
