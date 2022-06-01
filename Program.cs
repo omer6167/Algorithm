@@ -13,13 +13,149 @@ namespace Algorithm
     {
         private static void Main(string[] args)
         {
-            
 
+            string a = PrimeNumber(1000, 2000);
+
+            Console.WriteLine(a);
             Console.ReadLine();
         }
 
 
 
+        /*---------------- Not Done -------------------*/
+
+        #region Not Done
+
+        public static double PowerSum(int x, int n)
+        {
+            double count = 0, toplam = 0;
+            Convert.ToDouble(x);
+
+
+            double bolum = Math.Sqrt(x);
+
+            //List<double> intList = new List<double>();
+
+            //for (int i = 0; i <=bolum; i++)
+            //{
+            //    intList.Add(Math.Pow(i,2));
+            //    for (int j = 0; j <=bolum; j++)
+            //    {
+
+            //        toplam = intList[i] +intList[j];
+            //        if (x ==toplam)
+            //        {
+            //            count++;
+            //        }
+
+
+
+            //    }
+            //}
+
+            return count;
+        }
+
+
+        public static int Recursive(int[] memo, int n = 43)
+        {
+            if (memo.Any(t => n == memo[n - 1]))
+            {
+                return memo[n - 1];
+            }
+
+
+            if (n <= 2) return 1;
+            memo[n - 1] = Recursive(memo, n - 1) + Recursive(memo, n - 2);
+            return memo[n - 1];
+        }
+
+        public static int Fac(int n)
+        {
+            int toplam = n;
+            if (n <= 1) return 1;
+
+            return toplam *= Fac(n - 1);
+        }
+
+        public static void LongestCommonSub(string s1 = "as", string s2 = "as")//    SHINCHAN NOHARAAA  ABCDEF FBDAMN   HARRY SALLY
+        {
+
+            #region Code
+            //ArrayList arrayList = new ArrayList();
+            //int mainCount1 = 0, mainCount2 = 0;
+            //string lcs1 = "LCS1=||";
+            //string lcs2 = "LCS2=||";
+
+            //for (int k = 0; k < s2.Length; k++)
+            //{
+            //    int count = 0;
+            //    int a = 0;
+            //    for (int i = k; i < s2.Length; i++)
+            //    {
+            //        if (a >= s1.Length) break;
+
+            //        for (int j = a; j < s1.Length; j++)
+            //        {
+            //            if (s2[i] != s1[j]) continue;
+            //            count++;
+
+            //            lcs1 += $"-{s2[i]}";
+
+            //            a = j + 1;
+            //            break;
+            //        }
+            //    }
+            //    if (mainCount1 < count)
+            //    {
+            //        mainCount1 = count;
+            //        lcs1 += $"-##";
+            //    }
+
+            //    lcs1 += $"-|";
+            //}
+
+            //arrayList.Add(lcs1);
+
+
+            //for (int k = 0; k < s1.Length; k++)
+            //{
+            //    int a = 0;
+            //    int count = 0;
+            //    for (int i = k; i < s1.Length; i++)
+            //    {
+            //        if (a >= s1.Length) break;
+            //        for (int j = a; j < s2.Length; j++)
+            //        {
+            //            if (s1[i] != s2[j]) continue;
+            //            count++;
+
+            //            lcs2 += $"-{s1[i]}";
+
+            //            a = j + 1;
+            //            break;
+            //        }
+            //    }
+            //    if (mainCount2 < count)
+            //    {
+            //        mainCount2 = count;
+            //        lcs2 += $"-##";
+            //    }
+            //    lcs2 += $"-|";
+            //}
+
+            //arrayList.Add(lcs2);
+
+            ////return mainCount2 >= mainCount1? mainCount2: mainCount1;
+            //return arrayList;
+
+
+            #endregion
+        }
+
+        #endregion
+
+        /*-----------------------------------*/
 
 
 
@@ -356,7 +492,6 @@ namespace Algorithm
                     else
                     {
                         Console.WriteLine($"Your entered number must be between 0 and {lastNumb}");
-
                     }
                 }
 
@@ -1519,6 +1654,34 @@ namespace Algorithm
             for (int i = 1; i <= num; i++) fac *= i;
 
             return fac;
+        }
+
+        public static double SumPrimeNumbers(int start = 0, int end = 100)
+        {
+            bool isPrime = false;
+            
+            double sum = 0;
+
+            if (start <= 2) sum += 2;
+
+            for (int i = start; i <= end; i++)
+            {
+                for (int j = 2; j < i; j++)
+                {
+                    if (i % j == 0)
+                    {
+                        isPrime = false;
+                        break;
+                    }
+                    isPrime = true;
+                }
+                if (isPrime)
+                {
+                    sum += i;
+                }
+                isPrime = false;
+            }
+            return sum;
         }
 
         /// <summary>
